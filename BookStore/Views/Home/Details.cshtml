@@ -1,0 +1,22 @@
+﻿@model BookStore.Models.Cart
+<h1>Добавить в корзину?</h1>
+<form method = "post">
+	<div class = "row">
+		<input type="hidden" asp-for="BookId"/>
+	</div>
+	<div class="col-8">
+		<div class="row">
+			<label asp-for="Book.Name">Название книги: @Model.Book.Name</label>
+			<label asp-for="Book.Price">Цена: @Model.Book.Price</label>
+			<div class = "form-control">
+				<label asp-for="Count">Количество</label>
+				<input asp-for="Count" class="form-control"/>
+				<span asp-validation-for="Count" class="text-danger"></span>
+			</div>
+			<div class = "form-control">
+				<button class="btn btn-success" asp-action="Index" asp-controller="Home">Отмена</button>
+				<button type="submit" class="btn btn-dark">Добавить в коризну</button>
+			</div>
+		</div>
+	</div>
+</form>

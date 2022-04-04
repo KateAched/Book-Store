@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="row pb-4">
+	@foreach(var item in @Model)
+	{
+		<div class="card text-light bg-dark mb-3 me-auto" style="width:20rem;">
+			@foreach(var subitem in item.BookPictures)
+			{
+			<img class="card-img-top mt-3" src="~/Images/@subitem.PictureUri" alt = "Нет картинки">
+			}
+			<h1 class="card-header text-center">@item.Name</h1>
+			<div class="card-body">
+			<h5 class="card-text">@item.Description</h5>
+				      <div class="card-footer">
+				      <h5 class="card-text">Цена: @item.Price.ToString("0.00")</h5>
+					  <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Добавить в корзину</a> 
+				      </div>
+			</div>
+		</div>
+
+	}
+</div>
